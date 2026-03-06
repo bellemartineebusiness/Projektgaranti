@@ -36,7 +36,7 @@ export default function Hero() {
         {/* Brand logo */}
         <div className="mb-8">
           <Image
-            src="/logo-vertical-red.png"
+            src="/logo-vertical-red.svg"
             alt="Projektgaranti Stockholm AB"
             width={300}
             height={200}
