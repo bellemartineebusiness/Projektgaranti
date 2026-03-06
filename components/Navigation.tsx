@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 const navLinks = [
@@ -50,13 +51,16 @@ export default function Navigation() {
           <button
             onClick={() => handleNavClick('#hem')}
             className="flex-shrink-0"
+            aria-label="Projektgaranti Stockholm AB – Till startsidan"
           >
-            <span className="text-sm sm:text-base font-bold text-primary tracking-wide">
-              PROJEKTGARANTI
-            </span>
-            <span className="hidden sm:inline text-sm font-bold text-gray-600 ml-1 tracking-wide">
-              STOCKHOLM AB
-            </span>
+            <Image
+              src="/logo-horizontal-red.svg"
+              alt="Projektgaranti Stockholm AB"
+              width={220}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </button>
 
           {/* Desktop nav */}
