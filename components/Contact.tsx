@@ -1,0 +1,199 @@
+'use client'
+
+import { useState } from 'react'
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser } from 'react-icons/fa'
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    namn: '',
+    email: '',
+    telefon: '',
+    meddelande: '',
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Form submission logic would go here
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 5000)
+    setFormData({ namn: '', email: '', telefon: '', meddelande: '' })
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  return (
+    <section id="kontakt" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Kontakta oss
+          </h2>
+          <div className="w-16 h-1 bg-primary mx-auto mb-6" />
+          <p className="text-secondary text-lg max-w-2xl mx-auto">
+            Ta kontakt för en kostnadsfri konsultation och offert på ditt projekt.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-8">Kontaktinformation</h3>
+
+            <div className="space-y-6 mb-10">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <FaUser className="text-primary" size={20} />
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-800">Joacim Lind</p>
+                  <p className="text-secondary">Ansvarig Fastighet</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <FaPhone className="text-primary" size={20} />
+                </div>
+                <div>
+                  <p className="text-secondary text-sm mb-1">Telefon</p>
+                  <a
+                    href="tel:+46707401383"
+                    className="text-gray-800 font-semibold hover:text-primary transition-colors text-lg"
+                  >
+                    +46 70 740 1383
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <FaEnvelope className="text-primary" size={20} />
+                </div>
+                <div>
+                  <p className="text-secondary text-sm mb-1">E-post</p>
+                  <a
+                    href="mailto:info@projektgarantiab.se"
+                    className="text-gray-800 font-semibold hover:text-primary transition-colors text-lg"
+                  >
+                    info@projektgarantiab.se
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <FaMapMarkerAlt className="text-primary" size={20} />
+                </div>
+                <div>
+                  <p className="text-secondary text-sm mb-1">Adress</p>
+                  <p className="text-gray-800 font-semibold">Ekerövägen 51</p>
+                  <p className="text-gray-800 font-semibold">178 37 Ekerö</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Maps embed */}
+            <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+              <iframe
+                title="Projektgaranti Stockholm AB - Karta"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2033.5!2d17.8!3d59.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sEker%C3%B6v%C3%A4gen+51%2C+178+37+Eker%C3%B6!5e0!3m2!1ssv!2sse!4v1234567890"
+                width="100%"
+                height="260"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-8">Skicka ett meddelande</h3>
+
+            {submitted && (
+              <div className="bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl mb-6 font-medium">
+                ✓ Tack! Ditt meddelande har skickats. Vi återkommer snart.
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="namn" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Namn <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="namn"
+                  name="namn"
+                  required
+                  value={formData.namn}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  placeholder="Ditt namn"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  E-post <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  placeholder="din@email.se"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="telefon" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Telefon
+                </label>
+                <input
+                  type="tel"
+                  id="telefon"
+                  name="telefon"
+                  value={formData.telefon}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  placeholder="+46 70 000 0000"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="meddelande" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Meddelande <span className="text-primary">*</span>
+                </label>
+                <textarea
+                  id="meddelande"
+                  name="meddelande"
+                  required
+                  rows={5}
+                  value={formData.meddelande}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                  placeholder="Berätta om ditt projekt..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-primary-dark transition-colors duration-200 shadow-sm"
+              >
+                Skicka meddelande
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
