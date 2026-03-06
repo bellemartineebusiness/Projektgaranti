@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Projektgaranti">
+  <!-- House icon for favicon -->
+  <g transform="translate(4, 6)">
+    <!-- Roof -->
+    <polygon points="28,0 56,24 0,24" fill="#B23A48"/>
+    <!-- Body -->
+    <rect x="4" y="24" width="48" height="32" fill="#B23A48"/>
+    <!-- Door -->
+    <rect x="20" y="38" width="16" height="18" fill="white" rx="1"/>
+    <!-- Window left -->
+    <rect x="7" y="29" width="10" height="9" fill="white" rx="1"/>
+    <!-- Window right -->
+    <rect x="39" y="29" width="10" height="9" fill="white" rx="1"/>
+  </g>
+</svg>

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { FaChevronDown } from 'react-icons/fa'
 
 export default function Hero() {
@@ -32,13 +33,16 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Brand name */}
-        <div className="mb-8">
-          <div className="inline-block border-2 border-primary px-6 py-3 mb-6">
-            <span className="text-white text-sm sm:text-base font-bold tracking-widest uppercase">
-              Projektgaranti Stockholm AB
-            </span>
-          </div>
+        {/* Brand logo */}
+        <div className="mb-8 flex justify-center">
+          <Image
+            src="/logo-vertical-red.svg"
+            alt="Projektgaranti Stockholm AB"
+            width={200}
+            height={180}
+            className="w-40 sm:w-52 md:w-64 h-auto"
+            priority
+          />
         </div>
 
         {/* Main heading */}

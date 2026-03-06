@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function Footer() {
@@ -7,9 +8,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-bold text-primary mb-2">PROJEKTGARANTI</h3>
-            <p className="text-gray-400 text-sm mb-1">STOCKHOLM AB</p>
-            <p className="text-gray-400 text-sm mt-3 leading-relaxed">
+            <Image
+              src="/logo-horizontal-gray.svg"
+              alt="Projektgaranti Stockholm AB"
+              width={200}
+              height={36}
+              className="h-9 w-auto mb-3"
+            />
+            <p className="text-gray-400 text-sm mt-1 leading-relaxed">
               Professionell renovering i Stockholmsområdet med kvalitetsgaranti och ROT-avdrag.
             </p>
           </div>

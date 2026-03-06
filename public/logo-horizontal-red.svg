@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="320" height="60" role="img" aria-label="Projektgaranti Stockholm AB">
+  <!-- House icon -->
+  <g transform="translate(0, 4)">
+    <!-- Roof -->
+    <polygon points="26,6 52,26 0,26" fill="#B23A48"/>
+    <!-- Body -->
+    <rect x="6" y="26" width="40" height="24" fill="#B23A48"/>
+    <!-- Door -->
+    <rect x="20" y="36" width="12" height="14" fill="white" rx="1"/>
+    <!-- Window left -->
+    <rect x="9" y="30" width="8" height="7" fill="white" rx="1"/>
+    <!-- Window right -->
+    <rect x="35" y="30" width="8" height="7" fill="white" rx="1"/>
+  </g>
+  <!-- Company text -->
+  <text x="62" y="28" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" fill="#B23A48" letter-spacing="1.5">PROJEKTGARANTI</text>
+  <text x="62" y="46" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#555555" letter-spacing="2">STOCKHOLM AB</text>
+</svg>
