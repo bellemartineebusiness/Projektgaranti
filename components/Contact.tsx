@@ -99,7 +99,7 @@ export default function Contact() {
             <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
               <iframe
                 title="Projektgaranti Stockholm AB - Karta"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2033.5!2d17.8!3d59.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sEker%C3%B6v%C3%A4gen+51%2C+178+37+Eker%C3%B6!5e0!3m2!1ssv!2sse!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.123456!2d17.814!3d59.278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7da4a8b0c0ab%3A0x1!2sEker%C3%B6v%C3%A4gen+51%2C+178+37+Eker%C3%B6%2C+Sverige!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
                 width="100%"
                 height="260"
                 style={{ border: 0 }}
