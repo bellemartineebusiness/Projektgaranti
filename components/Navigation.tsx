@@ -56,12 +56,9 @@ export default function Navigation() {
             <Image
               src="/logo-horizontal-red.svg"
               alt="Projektgaranti Stockholm AB"
-              width={220}
-              height={40}
-              className="h-8 sm:h-10 w-auto"
               width={300}
               height={56}
-              className="h-14 w-auto"
+              className="h-12 sm:h-14 w-auto"
               priority
             />
           </button>
