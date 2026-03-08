@@ -32,7 +32,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 sm:px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
         {/* Brand logo */}
         <div className="mb-6 sm:mb-8">
           <Image

@@ -7,7 +7,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Brand */}
-          <div>
+          <div className="text-center md:text-left">
+            <div className="flex justify-center md:justify-start">
             <Image
               src="/logo-horizontal-gray.svg"
               alt="Projektgaranti Stockholm AB"
@@ -15,19 +16,20 @@ export default function Footer() {
               height={36}
               className="h-9 w-auto mb-3"
             />
+            </div>
             <p className="text-gray-400 text-sm mt-1 leading-relaxed">
               Professionell renovering i Stockholmsområdet med kvalitetsgaranti och ROT-avdrag.
             </p>
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-base font-semibold mb-4 text-gray-200">Kontakt</h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="tel:+46707401383"
-                  className="flex items-center gap-3 text-gray-400 hover:text-primary transition-colors text-sm"
+                  className="inline-flex items-center gap-3 text-gray-400 hover:text-primary transition-colors text-sm"
                 >
                   <FaPhone size={14} />
                   +46 70 740 1383
@@ -36,14 +38,14 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:info@projektgarantiab.se"
-                  className="flex items-center gap-3 text-gray-400 hover:text-primary transition-colors text-sm"
+                  className="inline-flex items-center gap-3 text-gray-400 hover:text-primary transition-colors text-sm"
                 >
                   <FaEnvelope size={14} />
                   info@projektgarantiab.se
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-gray-400 text-sm">
+                <div className="inline-flex items-start gap-3 text-gray-400 text-sm">
                   <FaMapMarkerAlt size={14} className="mt-0.5 flex-shrink-0" />
                   <span>Ekerövägen 51, 178 37 Ekerö</span>
                 </div>
@@ -52,7 +54,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-base font-semibold mb-4 text-gray-200">Tjänster</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>Badrumsrenovering</li>
