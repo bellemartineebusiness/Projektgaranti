@@ -46,7 +46,7 @@ export default function Navigation() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button
             onClick={() => handleNavClick('#hem')}
@@ -59,6 +59,9 @@ export default function Navigation() {
               width={220}
               height={40}
               className="h-8 sm:h-10 w-auto"
+              width={300}
+              height={56}
+              className="h-14 w-auto"
               priority
             />
           </button>
