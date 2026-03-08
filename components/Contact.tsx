@@ -25,19 +25,19 @@ export default function Contact() {
   }
 
   return (
-    <section id="kontakt" className="py-20 bg-white">
+    <section id="kontakt" className="py-12 md:py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Kontakta oss
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto mb-6" />
-          <p className="text-secondary text-lg max-w-2xl mx-auto">
+          <p className="text-secondary text-base sm:text-lg max-w-2xl mx-auto">
             Ta kontakt för en kostnadsfri konsultation och offert på ditt projekt.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Info */}
           <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-8">Kontaktinformation</h3>
@@ -97,16 +97,17 @@ export default function Contact() {
 
             {/* Google Maps embed */}
             <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-              <iframe
-                title="Projektgaranti Stockholm AB - Karta"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.123456!2d17.814!3d59.278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7da4a8b0c0ab%3A0x1!2sEker%C3%B6v%C3%A4gen+51%2C+178+37+Eker%C3%B6%2C+Sverige!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
-                width="100%"
-                height="260"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  title="Projektgaranti Stockholm AB - Karta"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.123456!2d17.814!3d59.278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7da4a8b0c0ab%3A0x1!2sEker%C3%B6v%C3%A4gen+51%2C+178+37+Eker%C3%B6%2C+Sverige!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
           </div>
 

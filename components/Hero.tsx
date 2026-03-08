@@ -32,44 +32,44 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 sm:px-4 max-w-4xl mx-auto">
         {/* Brand logo */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <Image
             src="/logo-vertical-red.svg"
             alt="Projektgaranti Stockholm AB"
             width={300}
             height={200}
             priority
-            className="mx-auto"
+            className="mx-auto w-40 sm:w-56 md:w-72"
           />
         </div>
 
         {/* Main heading */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
           Professionell renovering i{' '}
           <span className="text-primary">Stockholmsområdet</span>
         </h1>
 
         {/* Subheading */}
-        <p className="text-xl sm:text-2xl text-gray-300 mb-4">
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-3">
           Med garanti och ROT-avdrag
         </p>
-        <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+        <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto">
           Erfarna hantverkare för badrum, kök och totalrenovering. Vi levererar kvalitet du kan lita på.
         </p>
 
         {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <button
             onClick={() => scrollToSection('kontakt')}
-            className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-dark transition-colors duration-200 shadow-lg"
+            className="bg-primary text-white px-8 py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary-dark transition-colors duration-200 shadow-lg"
           >
             Kontakta oss
           </button>
           <button
             onClick={() => scrollToSection('tjanster')}
-            className="bg-transparent text-white px-8 py-4 rounded-lg text-lg font-semibold border-2 border-white hover:bg-white hover:text-gray-900 transition-colors duration-200"
+            className="bg-transparent text-white px-8 py-4 rounded-lg text-base sm:text-lg font-semibold border-2 border-white hover:bg-white hover:text-gray-900 transition-colors duration-200"
           >
             Våra tjänster
           </button>
