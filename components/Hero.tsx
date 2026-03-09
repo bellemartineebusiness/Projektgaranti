@@ -6,18 +6,20 @@ import Image from 'next/image'
 export default function Hero() {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
     <section
       id="hem"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-32"
       style={{
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #1a1a2e 100%)',
+        background:
+          'linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #1a1a2e 100%)',
       }}
     >
-      {/* Decorative overlay */}
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -31,66 +33,59 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto mt-16 sm:mt-20">
-        {/* Brand logo */}
-        <div className="mb-6 sm:mb-8">
+      <div className="relative z-10 mx-auto mt-20 max-w-4xl px-4 text-center sm:px-6 md:mt-28">
+        
+        {/* Större logo */}
+        <div className="mb-8">
           <Image
             src="/logo-vertical-red.svg"
             alt="Projektgaranti Stockholm AB"
-            width={300}
-            height={200}
+            width={420}
+            height={280}
             priority
-            className="mx-auto w-52 sm:w-72 md:w-96"
+            className="mx-auto w-72 sm:w-96 md:w-[420px]"
           />
         </div>
 
-        {/* Main heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
+        <h1 className="mb-5 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
           Professionell renovering i{' '}
           <span className="text-primary">Stockholmsområdet</span>
         </h1>
 
-        {/* Subheading */}
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-3">
+        <p className="mb-3 text-lg text-gray-300 sm:text-xl md:text-2xl">
           Med garanti och ROT-avdrag
         </p>
-        <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto">
+
+        <p className="mx-auto mb-10 max-w-2xl text-base text-gray-400 sm:text-lg">
           Erfarna hantverkare för badrum, kök och totalrenovering. Vi levererar kvalitet du kan lita på.
         </p>
 
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+        <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <button
             onClick={() => scrollToSection('kontakt')}
-            className="bg-primary text-white px-8 py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary-dark transition-colors duration-200 shadow-lg"
+            className="rounded-lg bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-primary-dark sm:text-lg"
           >
             Kontakta oss
           </button>
+
           <button
             onClick={() => scrollToSection('tjanster')}
-            className="bg-transparent text-white px-8 py-4 rounded-lg text-base sm:text-lg font-semibold border-2 border-white hover:bg-white hover:text-gray-900 transition-colors duration-200"
+            className="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-base font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-gray-900 sm:text-lg"
           >
             Våra tjänster
           </button>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <button
         onClick={() => scrollToSection('om-oss')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 group flex flex-col items-center gap-2 text-white opacity-75 hover:opacity-100 transition-all duration-300"
-        aria-label="Scroll down"
+        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-white"
+        aria-label="Nedåt"
       >
-        <span aria-hidden="true" className="text-xs tracking-[0.25em] uppercase font-light select-none">
-          Scroll
-        </span>
-        <div className="relative w-12 h-12 rounded-full border-2 border-white/60 group-hover:border-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-          <div className="flex flex-col items-center -space-y-1 motion-safe:animate-bounce">
-            <FaChevronDown size={12} className="opacity-60" />
-            <FaChevronDown size={14} />
-          </div>
-        </div>
+        <FaChevronDown
+          size={28}
+          className="animate-bounce opacity-90 transition hover:opacity-100"
+        />
       </button>
     </section>
   )

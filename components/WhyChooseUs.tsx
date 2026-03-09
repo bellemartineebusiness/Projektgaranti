@@ -1,59 +1,77 @@
-import { FaCheckCircle, FaPercentage, FaHardHat, FaMapMarkerAlt } from 'react-icons/fa'
+'use client'
 
-const reasons = [
+import { FaAward, FaHandshake, FaTools } from 'react-icons/fa'
+
+type Value = {
+  title: string
+  description: string
+  icon: React.ComponentType<{ className?: string }>
+}
+
+const values: Value[] = [
   {
-    icon: FaCheckCircle,
-    title: 'Kvalitetsgaranti',
-    description: 'Vi står för vårt arbete med garanti. Är du inte nöjd, åtgärdar vi det.',
+    title: 'Kvalitet',
+    description:
+      'Vi använder enbart material av högsta kvalitet och lever upp till branschens krav.',
+    icon: FaAward,
   },
   {
-    icon: FaPercentage,
-    title: 'ROT-avdrag',
-    description: 'Vi hjälper dig med ROT-avdrag – spara upp till 50% på arbetskostnaden.',
+    title: 'Pålitlighet',
+    description:
+      'Vi håller det vi lovar och arbetar med tydlig kommunikation, fasta processer och hög service.',
+    icon: FaHandshake,
   },
   {
-    icon: FaHardHat,
-    title: 'Erfarna hantverkare',
-    description: 'Över 10 års erfarenhet i branschen ger dig trygghet i varje projekt.',
-  },
-  {
-    icon: FaMapMarkerAlt,
-    title: 'Lokalt i Stockholm',
-    description: 'Vi finns i Stockholmsområdet och är snabbt på plats när du behöver oss.',
+    title: 'Erfarenhet',
+    description:
+      'Med lång erfarenhet i branschen kan vi hantera både små och stora renoveringsprojekt med trygghet.',
+    icon: FaTools,
   },
 ]
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-12 md:py-20 bg-primary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-            Varför välja oss?
+    <section id="varfor-vi" className="bg-gray-100 py-20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl font-bold text-gray-900">
+            Varför välja oss
           </h2>
-          <div className="w-16 h-1 bg-white mx-auto mb-6" />
-          <p className="text-red-100 text-base sm:text-lg max-w-2xl mx-auto">
-            Vi sätter kunden i centrum och levererar resultat som överträffar förväntningarna.
+
+          <div className="mx-auto mt-4 h-1 w-20 rounded bg-[#B23A48]" />
+
+          <p className="mt-6 text-lg text-gray-600">
+            Vi levererar hög kvalitet, tydlig kommunikation och trygga renoveringslösningar från start till mål.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {reasons.map((reason) => {
-            const Icon = reason.icon
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
+          {values.map((value) => {
+            const Icon = value.icon
+
             return (
               <div
-                key={reason.title}
-                className="text-center bg-white bg-opacity-10 rounded-xl p-6 md:p-7 hover:bg-opacity-20 transition-all duration-300"
+                key={value.title}
+                className="rounded-xl bg-white p-10 text-center shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-5">
-                  <Icon className="text-white" size={28} />
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#B23A48]">
+                  <Icon className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{reason.title}</h3>
-                <p className="text-red-100 leading-relaxed">{reason.description}</p>
+
+                <h3 className="mb-3 text-xl font-semibold text-gray-900">
+                  {value.title}
+                </h3>
+
+                <p className="leading-relaxed text-gray-600">
+                  {value.description}
+                </p>
+
               </div>
             )
           })}
         </div>
+
       </div>
     </section>
   )
