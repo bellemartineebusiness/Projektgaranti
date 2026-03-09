@@ -1,199 +1,76 @@
 'use client'
 
-import { useState } from 'react'
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
+
+type ContactItem = {
+  title: string
+  value: string
+  icon: React.ComponentType<{ className?: string }>
+}
+
+const contactInfo: ContactItem[] = [
+  {
+    title: 'Adress',
+    value: 'Stockholm, Sverige',
+    icon: FaMapMarkerAlt,
+  },
+  {
+    title: 'Telefon',
+    value: '+46 70 740 1383',
+    icon: FaPhoneAlt,
+  },
+  {
+    title: 'Email',
+    value: 'info@projektgaranti.se',
+    icon: FaEnvelope,
+  },
+]
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    namn: '',
-    email: '',
-    telefon: '',
-    meddelande: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Form submission logic would go here
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
-    setFormData({ namn: '', email: '', telefon: '', meddelande: '' })
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
   return (
-    <section id="kontakt" className="py-12 md:py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Kontakta oss
+    <section id="kontakt" className="bg-gray-50 py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl font-bold text-gray-900">
+            Kontaktinformation
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto mb-6" />
-          <p className="text-secondary text-base sm:text-lg max-w-2xl mx-auto">
-            Ta kontakt för en kostnadsfri konsultation och offert på ditt projekt.
+
+          <div className="mx-auto mt-4 h-1 w-20 rounded bg-[#B23A48]" />
+
+          <p className="mt-6 text-lg text-gray-600">
+            Kontakta oss för offert eller frågor om ditt projekt.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-8">Kontaktinformation</h3>
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
 
-            <div className="space-y-6 mb-10">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FaUser className="text-primary" size={20} />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800">Joacim Lind</p>
-                  <p className="text-secondary">Ansvarig Fastighet</p>
-                </div>
-              </div>
+          {contactInfo.map((item) => {
+            const Icon = item.icon
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FaPhone className="text-primary" size={20} />
-                </div>
-                <div>
-                  <p className="text-secondary text-sm mb-1">Telefon</p>
-                  <a
-                    href="tel:+46707401383"
-                    className="text-gray-800 font-semibold hover:text-primary transition-colors text-lg"
-                  >
-                    +46 70 740 1383
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FaEnvelope className="text-primary" size={20} />
-                </div>
-                <div>
-                  <p className="text-secondary text-sm mb-1">E-post</p>
-                  <a
-                    href="mailto:info@projektgarantiab.se"
-                    className="text-gray-800 font-semibold hover:text-primary transition-colors text-lg"
-                  >
-                    info@projektgarantiab.se
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FaMapMarkerAlt className="text-primary" size={20} />
-                </div>
-                <div>
-                  <p className="text-secondary text-sm mb-1">Adress</p>
-                  <p className="text-gray-800 font-semibold">Ekerövägen 51</p>
-                  <p className="text-gray-800 font-semibold">178 37 Ekerö</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Google Maps embed */}
-            <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  title="Projektgaranti Stockholm AB - Karta"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.123456!2d17.814!3d59.278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7da4a8b0c0ab%3A0x1!2sEker%C3%B6v%C3%A4gen+51%2C+178+37+Eker%C3%B6%2C+Sverige!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
-                  className="absolute inset-0 w-full h-full"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-8">Skicka ett meddelande</h3>
-
-            {submitted && (
-              <div className="bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl mb-6 font-medium">
-                ✓ Tack! Ditt meddelande har skickats. Vi återkommer snart.
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label htmlFor="namn" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Namn <span className="text-primary">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="namn"
-                  name="namn"
-                  required
-                  value={formData.namn}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="Ditt namn"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  E-post <span className="text-primary">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="din@email.se"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="telefon" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Telefon
-                </label>
-                <input
-                  type="tel"
-                  id="telefon"
-                  name="telefon"
-                  value={formData.telefon}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="+46 70 000 0000"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="meddelande" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Meddelande <span className="text-primary">*</span>
-                </label>
-                <textarea
-                  id="meddelande"
-                  name="meddelande"
-                  required
-                  rows={5}
-                  value={formData.meddelande}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
-                  placeholder="Berätta om ditt projekt..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-primary-dark transition-colors duration-200 shadow-sm"
+            return (
+              <div
+                key={item.title}
+                className="rounded-xl bg-white p-8 text-center shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                Skicka meddelande
-              </button>
-            </form>
-          </div>
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#B23A48]">
+                  <Icon className="h-7 w-7 text-white" />
+                </div>
+
+                <h3 className="mb-2 text-xl font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-600">
+                  {item.value}
+                </p>
+
+              </div>
+            )
+          })}
+
         </div>
+
       </div>
     </section>
   )
