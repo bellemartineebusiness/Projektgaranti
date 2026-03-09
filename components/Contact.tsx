@@ -1,8 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser } from 'react-icons/fa'
+import { getStoredConsent } from '@/components/CookieBanner'
+
+function useConsentAccepted() {
+  const [accepted, setAccepted] = useState(false)
+
+  useEffect(() => {
+    const check = () => {
+      const stored = getStoredConsent()
+      setAccepted(stored?.status === 'accepted')
+    }
+    check()
+    window.addEventListener('cookieConsentChanged', check)
+    return () => window.removeEventListener('cookieConsentChanged', check)
+  }, [])
+
+  return accepted
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,6 +30,7 @@ export default function Contact() {
     gdprConsent: false,
   })
   const [submitted, setSubmitted] = useState(false)
+  const consentAccepted = useConsentAccepted()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -102,18 +120,33 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Google Maps embed */}
+            {/* Google Maps embed – only loaded after cookie consent */}
             <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
               <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  title="Projektgaranti Stockholm AB - Karta"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.123456!2d17.814!3d59.278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7da4a8b0c0ab%3A0x1!2sEker%C3%B6v%C3%A4gen+51%2C+178+37+Eker%C3%B6%2C+Sverige!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
-                  className="absolute inset-0 w-full h-full"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                {consentAccepted ? (
+                  <iframe
+                    title="Projektgaranti Stockholm AB - Karta"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.123456!2d17.814!3d59.278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7da4a8b0c0ab%3A0x1!2sEker%C3%B6v%C3%A4gen+51%2C+178+37+Eker%C3%B6%2C+Sverige!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 text-center px-4">
+                    <FaMapMarkerAlt size={28} className="text-gray-400 mb-3" />
+                    <p className="text-sm text-gray-600 mb-3">
+                      Kartan laddas inte utan ditt samtycke till cookies.
+                    </p>
+                    <button
+                      onClick={() => window.dispatchEvent(new Event('openCookieSettings'))}
+                      className="text-sm text-primary underline hover:text-primary-dark transition-colors"
+                    >
+                      Hantera cookieinställningar
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>

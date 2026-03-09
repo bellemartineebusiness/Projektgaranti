@@ -175,9 +175,9 @@ export default function IntegritetspolicyPage() {
               <tbody>
                 <tr>
                   <td className="py-3 px-4 border border-gray-200 font-mono text-xs">cookie_consent</td>
-                  <td className="py-3 px-4 border border-gray-200">Sparar ditt cookieval (localStorage)</td>
+                  <td className="py-3 px-4 border border-gray-200">Sparar ditt cookiesamtycke</td>
                   <td className="py-3 px-4 border border-gray-200">Nödvändig</td>
-                  <td className="py-3 px-4 border border-gray-200">Tills webbläsardata rensas</td>
+                  <td className="py-3 px-4 border border-gray-200">365 dagar</td>
                 </tr>
               </tbody>
             </table>
@@ -190,9 +190,9 @@ export default function IntegritetspolicyPage() {
 
           <h3 className="text-lg font-semibold text-gray-800 mb-2 mt-4">Hantera cookies</h3>
           <p className="text-gray-600 leading-relaxed">
-            Du kan när som helst ändra eller återkalla ditt cookiesamtycke genom att rensa
-            webbläsarens lokala lagring. Du kan även stänga av cookies i din webbläsares
-            inställningar, men det kan påverka webbplatsens funktionalitet.
+            Du kan när som helst ändra eller återkalla ditt cookiesamtycke genom att klicka på{' '}
+            <strong>Hantera cookies</strong> i sidfoten på webbplatsen. Du kan även stänga av
+            cookies i din webbläsares inställningar, men det kan påverka webbplatsens funktionalitet.
           </p>
         </section>
 
