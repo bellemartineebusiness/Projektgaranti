@@ -79,7 +79,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={() => scrollToSection('om-oss')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-70 hover:opacity-100 transition-opacity animate-bounce"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-70 hover:opacity-100 transition-opacity animate-bounce z-20"
         aria-label="Scroll down"
       >
         <FaChevronDown size={28} />
