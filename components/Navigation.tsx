@@ -46,7 +46,7 @@ export default function Navigation() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <button
             onClick={() => handleNavClick('#hem')}
@@ -56,9 +56,9 @@ export default function Navigation() {
             <Image
               src="/logo-horizontal-red.svg"
               alt="Projektgaranti Stockholm AB"
-              width={300}
-              height={56}
-              className="h-12 sm:h-14 w-auto"
+              width={429}
+              height={80}
+              className="h-16 sm:h-20 w-auto"
               priority
             />
           </button>
