@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 const navLinks = [
@@ -46,10 +47,10 @@ export default function Navigation() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-28 sm:h-32">
           {/* Logo */}
-          <button
-            onClick={() => handleNavClick('#hem')}
+          <Link
+            href="/"
             className="flex-shrink-0"
             aria-label="Projektgaranti Stockholm AB – Till startsidan"
           >
@@ -58,10 +59,10 @@ export default function Navigation() {
               alt="Projektgaranti Stockholm AB"
               width={429}
               height={80}
-              className="h-16 sm:h-20 w-auto"
+              className="h-20 sm:h-24 w-auto"
               priority
             />
-          </button>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center space-x-8">
