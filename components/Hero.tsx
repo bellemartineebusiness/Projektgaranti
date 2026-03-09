@@ -32,7 +32,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto mt-40 sm:mt-48">
         {/* Brand logo */}
         <div className="mb-6 sm:mb-8">
           <Image
@@ -41,7 +41,7 @@ export default function Hero() {
             width={300}
             height={200}
             priority
-            className="mx-auto w-40 sm:w-56 md:w-72"
+            className="mx-auto w-52 sm:w-72 md:w-96"
           />
         </div>
 
