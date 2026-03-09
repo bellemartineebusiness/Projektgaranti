@@ -58,7 +58,7 @@ export default function Navigation() {
               alt="Projektgaranti Stockholm AB"
               width={320}
               height={60}
-              className="h-10 sm:h-14 w-auto"
+              className="site-logo"
               priority
             />
           </Link>
