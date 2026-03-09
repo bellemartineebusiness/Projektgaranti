@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import ManageCookiesButton from '@/components/ManageCookiesButton'
 
 export default function Footer() {
   return (
@@ -70,12 +71,15 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-gray-500 text-sm">
           <p>© 2026 Projektgaranti Stockholm AB. Alla rättigheter förbehållna.</p>
-          <Link
-            href="/integritetspolicy"
-            className="hover:text-gray-300 transition-colors underline underline-offset-2"
-          >
-            Integritetspolicy &amp; Cookiepolicy
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/integritetspolicy"
+              className="hover:text-gray-300 transition-colors underline underline-offset-2"
+            >
+              Integritetspolicy &amp; Cookiepolicy
+            </Link>
+            <ManageCookiesButton />
+          </div>
         </div>
       </div>
     </footer>
