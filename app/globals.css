@@ -39,3 +39,36 @@ video {
     @apply text-secondary text-lg mb-12 max-w-2xl mx-auto;
   }
 }
+
+/* Added by automated fix: place arrow under text using pseudo-element */
+.cta-arrow {
+  display: inline-block;
+  text-align: center;
+}
+.cta-arrow::after {
+  content: "▼";
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+  line-height: 1;
+  color: currentColor;
+}
+
+/* Added by automated fix: increase logo size for visibility */
+.site-logo {
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Added by automated fix: improve contrast for Varför välja oss section */
+.why-choose-us h2,
+.why-choose-us h3 {
+  color: #111111;
+  font-weight: 700;
+}
+.why-choose-us p {
+  color: #222222;
+  font-weight: 600;
+}

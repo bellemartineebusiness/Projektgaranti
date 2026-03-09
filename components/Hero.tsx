@@ -1,6 +1,5 @@
 'use client'
 
-import { FaChevronDown } from 'react-icons/fa'
 import Image from 'next/image'
 
 export default function Hero() {
@@ -74,16 +73,18 @@ export default function Hero() {
             Våra tjänster
           </button>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <button
-        onClick={() => scrollToSection('om-oss')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-70 hover:opacity-100 transition-opacity animate-bounce z-20"
-        aria-label="Scroll down"
-      >
-        <FaChevronDown size={28} />
-      </button>
+        {/* Scroll indicator – positioned under CTA buttons via ::after pseudo-element */}
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => scrollToSection('om-oss')}
+            className="cta-arrow text-white opacity-70 hover:opacity-100 transition-opacity animate-bounce"
+            aria-label="Scroll down"
+          >
+            <span className="sr-only">Scroll down</span>
+          </button>
+        </div>
+      </div>
     </section>
   )
 }
