@@ -46,7 +46,7 @@ export default function Navigation() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
-      <div className="flex items-center justify-between h-20 sm:h-28 px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between h-24 sm:h-32 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link
             href="/"
@@ -58,7 +58,7 @@ export default function Navigation() {
               alt="Projektgaranti Stockholm AB"
               width={400}
               height={80}
-              className="h-14 sm:h-20 lg:h-24 w-auto"
+              className="h-20 sm:h-28 lg:h-32 w-auto"
               priority
             />
           </Link>
