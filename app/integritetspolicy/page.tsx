@@ -34,6 +34,8 @@ export default function IntegritetspolicyPage() {
           </p>
           <address className="not-italic bg-gray-50 rounded-xl p-5 text-gray-700 text-sm leading-loose border border-gray-200">
             <strong>Projektgaranti Stockholm AB</strong><br />
+            {/* TODO: Ersätt 559XXXXX-XXXX med faktiskt organisationsnummer innan publicering */}
+            Organisationsnummer: 559XXXXX-XXXX<br />
             Ekerövägen 51, 178 37 Ekerö<br />
             Telefon:{' '}
             <a href="tel:+46707401383" className="text-primary hover:underline">
@@ -126,7 +128,7 @@ export default function IntegritetspolicyPage() {
           <ul className="list-disc pl-6 text-gray-600 space-y-2">
             <li><strong>Få tillgång</strong> till de uppgifter vi behandlar om dig.</li>
             <li><strong>Begära rättelse</strong> av felaktiga uppgifter.</li>
-            <li><strong>Begära radering</strong> ("rätten att bli glömd") när uppgifterna inte längre behövs.</li>
+            <li><strong>Begära radering</strong> (&quot;rätten att bli glömd&quot;) när uppgifterna inte längre behövs.</li>
             <li><strong>Begära begränsning</strong> av behandlingen under vissa omständigheter.</li>
             <li><strong>Invända</strong> mot behandling som grundas på berättigat intresse.</li>
             <li><strong>Återkalla samtycke</strong> när som helst, utan att det påverkar lagenligheten av tidigare behandling.</li>

@@ -29,15 +29,37 @@ export default function Contact() {
     meddelande: '',
     gdprConsent: false,
   })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
   const consentAccepted = useConsentAccepted()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Form submission logic would go here
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
-    setFormData({ namn: '', email: '', telefon: '', meddelande: '', gdprConsent: false })
+    setStatus('sending')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        setStatus('error')
+        setErrorMsg(data.error ?? 'Något gick fel. Försök igen.')
+        return
+      }
+
+      setStatus('success')
+      setFormData({ namn: '', email: '', telefon: '', meddelande: '', gdprConsent: false })
+      setTimeout(() => setStatus('idle'), 8000)
+    } catch (error) {
+      console.error('Contact form submission error:', error)
+      setStatus('error')
+      setErrorMsg('Nätverksfel. Kontrollera din anslutning och försök igen.')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -155,9 +177,15 @@ export default function Contact() {
           <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-8">Skicka ett meddelande</h3>
 
-            {submitted && (
+            {status === 'success' && (
               <div className="bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl mb-6 font-medium">
-                ✓ Tack! Ditt meddelande har skickats. Vi återkommer snart.
+                ✓ Tack! Ditt meddelande har skickats. Vi återkommer inom kort.
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-5 py-4 rounded-xl mb-6">
+                ✗ {errorMsg}
               </div>
             )}
 
@@ -253,9 +281,10 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-primary-dark transition-colors duration-200 shadow-sm"
+                disabled={status === 'sending'}
+                className="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-primary-dark transition-colors duration-200 shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Skicka meddelande
+                {status === 'sending' ? 'Skickar...' : 'Skicka meddelande'}
               </button>
             </form>
           </div>
