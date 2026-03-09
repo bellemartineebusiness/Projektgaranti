@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import CookieBanner from '@/components/CookieBanner'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -29,7 +30,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sv">
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieBanner />
+      </body>
     </html>
   )
 }
