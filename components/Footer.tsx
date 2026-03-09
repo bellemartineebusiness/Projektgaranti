@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function Footer() {
@@ -67,8 +68,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+        <div className="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-gray-500 text-sm">
           <p>© 2026 Projektgaranti Stockholm AB. Alla rättigheter förbehållna.</p>
+          <Link
+            href="/integritetspolicy"
+            className="hover:text-gray-300 transition-colors underline underline-offset-2"
+          >
+            Integritetspolicy &amp; Cookiepolicy
+          </Link>
         </div>
       </div>
     </footer>

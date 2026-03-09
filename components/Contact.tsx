@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser } from 'react-icons/fa'
 
 export default function Contact() {
@@ -9,6 +10,7 @@ export default function Contact() {
     email: '',
     telefon: '',
     meddelande: '',
+    gdprConsent: false,
   })
   const [submitted, setSubmitted] = useState(false)
 
@@ -17,11 +19,16 @@ export default function Contact() {
     // Form submission logic would go here
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 5000)
-    setFormData({ namn: '', email: '', telefon: '', meddelande: '' })
+    setFormData({ namn: '', email: '', telefon: '', meddelande: '', gdprConsent: false })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    const { name, value, type } = e.target
+    if (type === 'checkbox') {
+      setFormData({ ...formData, [name]: (e.target as HTMLInputElement).checked })
+    } else {
+      setFormData({ ...formData, [name]: value })
+    }
   }
 
   return (
@@ -183,6 +190,32 @@ export default function Contact() {
                   className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
                   placeholder="Berätta om ditt projekt..."
                 />
+              </div>
+
+              {/* GDPR Consent */}
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="gdprConsent"
+                  name="gdprConsent"
+                  required
+                  checked={formData.gdprConsent}
+                  onChange={handleChange}
+                  className="mt-1 h-4 w-4 flex-shrink-0 accent-primary"
+                />
+                <label htmlFor="gdprConsent" className="text-sm text-gray-600 leading-relaxed">
+                  Jag godkänner att Projektgaranti Stockholm AB behandlar mina personuppgifter för
+                  att besvara min förfrågan. Läs mer i vår{' '}
+                  <Link
+                    href="/integritetspolicy"
+                    className="text-primary underline hover:text-primary-dark"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    integritetspolicy
+                  </Link>
+                  . <span className="text-primary">*</span>
+                </label>
               </div>
 
               <button
