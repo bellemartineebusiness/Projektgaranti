@@ -79,10 +79,18 @@ export default function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={() => scrollToSection('om-oss')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-70 hover:opacity-100 transition-opacity animate-bounce z-20"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 group flex flex-col items-center gap-2 text-white opacity-75 hover:opacity-100 transition-all duration-300"
         aria-label="Scroll down"
       >
-        <FaChevronDown size={28} />
+        <span aria-hidden="true" className="text-xs tracking-[0.25em] uppercase font-light select-none">
+          Scroll
+        </span>
+        <div className="relative w-12 h-12 rounded-full border-2 border-white/60 group-hover:border-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+          <div className="flex flex-col items-center -space-y-1 motion-safe:animate-bounce">
+            <FaChevronDown size={12} className="opacity-60" />
+            <FaChevronDown size={14} />
+          </div>
+        </div>
       </button>
     </section>
   )
