@@ -70,7 +70,11 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-gray-500 text-sm">
-          <p>© 2026 Projektgaranti Stockholm AB. Alla rättigheter förbehållna.</p>
+          <div className="text-center sm:text-left">
+            <p>© 2026 Projektgaranti Stockholm AB. Alla rättigheter förbehållna.</p>
+            {/* TODO: Ersätt 559XXXXX-XXXX med faktiskt organisationsnummer innan publicering */}
+            <p className="mt-1">Org.nr: 559XXXXX-XXXX &nbsp;|&nbsp; Innehar F-skattsedel &nbsp;|&nbsp; Innehar ROT-tillstånd</p>
+          </div>
           <div className="flex items-center gap-4">
             <Link
               href="/integritetspolicy"
