@@ -46,8 +46,7 @@ export default function Navigation() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-28 sm:h-32">
+      <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link
             href="/"
@@ -57,9 +56,9 @@ export default function Navigation() {
             <Image
               src="/logo-horizontal-red.svg"
               alt="Projektgaranti Stockholm AB"
-              width={429}
-              height={80}
-              className="h-20 sm:h-24 w-auto"
+              width={320}
+              height={60}
+              className="h-10 sm:h-14 w-auto"
               priority
             />
           </Link>
@@ -96,7 +95,6 @@ export default function Navigation() {
           >
             {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
           </button>
-        </div>
       </div>
 
       {/* Mobile menu */}
